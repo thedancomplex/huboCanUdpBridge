@@ -19,3 +19,5 @@ C:\Users\geovana\Documents\Visual Studio 2008\Projects\helloCAN - Exp\helloCAN\b
 C:\Users\geovana\Documents\Visual Studio 2008\Projects\helloCAN - Exp\helloCAN\bin\Debug\helloCAN.exe
 C:\Users\geovana\Documents\Visual Studio 2008\Projects\helloCAN - Exp\helloCAN\bin\Debug\helloCAN.pdb
 C:\Users\geovana\Documents\Visual Studio 2008\Projects\helloCAN - Exp\helloCAN\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\geovana\Documents\Visual Studio 2008\Projects\huboCanUdpBridge\helloCAN\obj\Debug\helloCAN.exe
+C:\Users\geovana\Documents\Visual Studio 2008\Projects\huboCanUdpBridge\helloCAN\obj\Debug\helloCAN.pdb
