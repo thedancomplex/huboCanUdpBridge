@@ -13,7 +13,7 @@ namespace helloCAN
     class Program
     {
         public static bool doDebug = false;
-        public static bool doDebugSlow = true;
+        public static bool doDebugSlow = false;
         public static int doDebugSlowi = 0;
         public static int doDebugSlowMax = 1000;
         public static byte RHY = 39;
@@ -66,6 +66,7 @@ namespace helloCAN
         public static Socket txSocket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
 
         public static IPEndPoint sendEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.10"), 11001);
+        //public static IPEndPoint sendEndPoint = new IPEndPoint(IPAddress.Parse("192.168.0.30"), 11001);
 
         [DllImport("kernel32.dll", SetLastError=true)]
         static extern int WaitForSingleObject(int handle, int timeOut);
@@ -535,7 +536,9 @@ namespace helloCAN
                                     int Fz = BitConverter.ToInt16(data, 4);
 
                                     sendUDP((byte)msgID, 0.0, Mx, My, Fz, 0);        // send the udp message
-
+                                    sendUDP((byte)msgID, 0.0, Mx, My, Fz, 0); //dan
+                                    sendUDP((byte)msgID, 0.0, Mx, My, Fz, 0); //dan
+                                    sendUDP((byte)msgID, 0.0, Mx, My, Fz, 0); //dan
                                     if (nFT == 1)
                                     {
                                         //uint MMx = BitConverter.ToUInt16(data, 0);
@@ -557,6 +560,9 @@ namespace helloCAN
                                     int Gyro2 = BitConverter.ToInt16(data, 6);
 
                                     sendUDP((byte)msgID, 0.0, Acc1, Acc2, Gyro1, Gyro2);
+                                    sendUDP((byte)msgID, 0.0, Acc1, Acc2, Gyro1, Gyro2); //dan
+                                    sendUDP((byte)msgID, 0.0, Acc1, Acc2, Gyro1, Gyro2); //dan
+                                    sendUDP((byte)msgID, 0.0, Acc1, Acc2, Gyro1, Gyro2); //dan
 
                                     if (nAD == 1)
                                     {
@@ -667,6 +673,9 @@ namespace helloCAN
                                         if (doDebug)
                                             Console.Write("|");
                                         sendUDP((byte)motor[i], finalDeg,0,0,0,0);        // send the udp message
+                                        sendUDP((byte)motor[i], finalDeg, 0, 0, 0, 0); //dan
+                                        sendUDP((byte)motor[i], finalDeg, 0, 0, 0, 0); //dan
+                                        sendUDP((byte)motor[i], finalDeg, 0, 0, 0, 0); //dan
                                     }
                                 }
                                 #endregion
@@ -774,8 +783,8 @@ namespace helloCAN
                                             tempInt = tempInt * mult;
                                             //public static int[,] ratio = new int[5, 51];  // driven, drive, harmonic, enc, quad
                                             //finalDeg = (tempInt / (double)((ratio[1, motor[i]] / ratio[0, motor[i]]) * ratio[2, motor[i]] * ratio[3, motor[i]] * ratio[4, motor[i]])) * 360.0;
-                                            finalDeg = getDeg(tempInt, ratio[0, motor[i]], ratio[1, motor[i]], ratio[2, motor[i]], ratio[3, motor[i]], ratio[4, motor[i]]);
-                                            
+                                            finalDeg = getDeg(tempInt  , ratio[0, motor[i]], ratio[1, motor[i]], ratio[2, motor[i]], ratio[3, motor[i]], ratio[4, motor[i]]);
+                                            //         getDeg(int ticks, double drive      , double driven     , double harmonic, double enc, double quad)
                                             /*
                                             if (mNum == 0x23)
                                             {
@@ -825,6 +834,9 @@ namespace helloCAN
                                         if (doDebug)
                                             Console.Write("-");
                                         sendUDP((byte)motor[i], finalDeg,0,0,0,0);        // send the udp message
+                                        sendUDP((byte)motor[i], finalDeg, 0, 0, 0, 0); //dan
+                                        sendUDP((byte)motor[i], finalDeg, 0, 0, 0, 0); //dan
+                                        sendUDP((byte)motor[i], finalDeg, 0, 0, 0, 0); //dan
                                     }
                                 }
                             }
